@@ -16,4 +16,8 @@ export class DataService {
      // For getting a test url got to https://putsreq.com , get your URL and test the post call
     return this.http.post('https://putsreq.com/00bRJNNCchhoc9HlXBKX',userSettings);
   }
+
+  getSubscriptionTypes(): Observable<string[]> {
+      return of(["Monthly", "Annual","Lifetime"]);
+  }
 }

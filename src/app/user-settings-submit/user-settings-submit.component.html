@@ -73,9 +73,9 @@
                         id="inputState"
                         name="subscriptionType" 
                         class="form-control">
-                  <option value="lifetime">Lifetime</option>
-                  <option value="month">Month</option>
-                  <option value="year">Year</option>
+                  <option *ngFor="let type of subscriptionTypes | async">
+                      {{ type }}
+                  </option>
                 </select>
               </div>
               <div class="form-group">

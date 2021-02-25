@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { DataService } from '../data/data.service';
 import { UserSettings } from '../user-settings/user-settings';
 
@@ -19,9 +20,13 @@ export class UserSettingsSubmitComponent implements OnInit {
     notes: 'here are some notes...'
   }
 
+  public subscriptionTypes: Observable<string[]> | undefined;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    // get the subscription types
+    this.subscriptionTypes = this.dataService.getSubscriptionTypes();
   }
 
   // here we will perform validation before the form is submited
