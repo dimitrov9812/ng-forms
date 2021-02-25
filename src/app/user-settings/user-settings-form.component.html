@@ -1,0 +1,92 @@
+<div class="container">
+    <h2>User Settings</h2>
+    <h6 style="color: red;">This for is validated instanlty</h6>
+    <form #form="ngForm" ngNativeValidate>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input [(ngModel)]="userSettings.name"
+                   name="name"
+                   id="name"
+                   placeholder="Name"
+                   class="form-control"
+                   #nameField="ngModel"
+                   required/>
+         </div>
+         <div [hidden]='nameField.valid || nameField.untouched'
+              class="alert alert-danger">
+            Enter a name
+         </div>
+         <div class="form-check form-group">
+             <input [(ngModel)]="userSettings.emailOffers"
+                    id="emailOffers"
+                    name="emailOffers"
+                    type="checkbox"
+                    class="form-check-input">
+            <label for="emailOffers"
+                   class="form-check-label">
+                Email Special Offers
+            </label>
+         </div>
+         <div class="form-group">
+            <p>Select a theme</p>
+              <div class="form-check">
+                <input [(ngModel)]="userSettings.interfaceStyle"
+                       type="radio"
+                       name="interfaceStyle"
+                       id="exampleRadios1"
+                       value="dark"
+                       class="form-check-input">
+                <label class="form-check-label"
+                       for="exampleRadios1">
+                  Dark
+                </label>
+              </div>
+              <div class="form-check">
+                <input [(ngModel)]="userSettings.interfaceStyle"
+                       type="radio"
+                       name="interfaceStyle"
+                       id="exampleRadios1"
+                       value="medium"
+                       class="form-check-input">
+                <label class="form-check-label"
+                       for="exampleRadios1">
+                  medium
+                </label>
+              </div>
+              <div class="form-check">
+                <input [(ngModel)]="userSettings.interfaceStyle"
+                       type="radio"
+                       name="interfaceStyle"
+                       id="exampleRadios1"
+                       value="light"
+                       class="form-check-input">
+                <label class="form-check-label"
+                       for="exampleRadios1">
+                  light
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="inputState">Subscription Type</label>
+                <select [(ngModel)]="userSettings.subscriptionType"
+                        id="inputState"
+                        name="subscriptionType" 
+                        class="form-control">
+                  <option value="lifetime">Lifetime</option>
+                  <option value="month">Month</option>
+                  <option value="year">Year</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Notes</label>
+                <textarea [(ngModel)]="userSettings.notes"
+                          id="exampleFormControlTextarea1"
+                          rows="3"
+                          name="notes"
+                          class="form-control"></textarea>
+              </div>
+         </div>
+        <button class="btn btn-primary"
+               (click)="onClick()"
+               style="background-color: red; border-color: rgb(146, 48, 48);">OK</button>
+    </form>
+</div>
